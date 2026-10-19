@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECOWAY | رشا محمد عمارة</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" id="homeLink" href="#" aria-label="الرجوع لأول الصفحة">
+      <h1 class="sr-only">ECOWAY</h1>
+      <img class="logo-img" src="images/logo.png" alt="ECOWAY">
+      <small>رشا محمد عمارة</small>
+    </a>
+
+    <div class="search">
+      <input id="search" type="search" placeholder="ابحث عن منتج..." aria-label="ابحث عن منتج">
+    </div>
+
+    <a class="social-link" href="https://www.instagram.com/dr_ecoway?obrf=MTZ1ajBveW10ZzloZA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram - dr_ecoway" title="Instagram"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/></svg></a>
+    <button id="cartToggle" class="cart-btn" aria-label="السلة">
+      🛒 <span id="cartCount" class="badge">0</span>
+    </button>
+  </header>
+
+  <main class="layout">
+    <section>
+      <div class="section-head">
+        <h2>كل المنتجات</h2>
+        <span id="resultCount" class="muted"></span>
+      </div>
+      <nav id="categories" class="categories" aria-label="الأقسام"></nav>
+      <div id="status" class="status">جاري تحميل المنتجات...</div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <aside id="cart" class="cart" aria-live="polite">
+      <div class="cart-head">
+        <h2>سلة المشتريات</h2>
+        <button id="closeCart" class="icon-btn" aria-label="إغلاق">✕</button>
+      </div>
+
+      <div class="cart-scroll">
+      <div id="cartItems" class="cart-items"></div>
+
+      <div class="cart-total">
+        <span>الإجمالي التقديري</span>
+        <strong id="cartTotal">0.00 EGP</strong>
+      </div>
+
+      <form id="checkout" class="checkout" novalidate>
+        <h3>بيانات الطلب</h3>
+        <label>الاسم
+          <input name="name" required maxlength="100" autocomplete="name">
+        </label>
+        <label>الإيميل
+          <input name="email" type="email" required maxlength="150" autocomplete="email" dir="ltr">
+        </label>
+        <label>رقم الموبايل
+          <input name="phone" type="tel" required maxlength="20" autocomplete="tel" dir="ltr" placeholder="01XXXXXXXXX" pattern="\+?[0-9 ]{8,20}">
+        </label>
+        <label>العنوان
+          <textarea name="address" required maxlength="300" rows="3" autocomplete="street-address"></textarea>
+        </label>
+        <p id="formError" class="error" role="alert"></p>
+        <div id="waBox" class="wa-box">
+          <p id="waHint">املا البيانات وأضف منتجات عشان تبعت الطلب</p>
+          <a id="waLink" class="wa-link disabled" href="#" target="_blank" rel="noopener" aria-disabled="true">📲 ابعت الطلب على واتساب</a>
+          <div id="sentBox" class="sent-box" hidden>
+            <p>هل ابتعت الطلب على واتساب؟</p>
+            <div class="sent-actions">
+              <button id="orderSentYes" class="sent-yes" type="button">أيوه، فضّي السلة</button>
+              <button id="orderSentNo" class="sent-no" type="button">لأ، لسه</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+    </aside>
+  </main>
+
+  <div id="overlay" class="overlay"></div>
+
+  <footer class="footer">
+    <a class="social-footer" href="https://www.instagram.com/dr_ecoway?obrf=MTZ1ajBveW10ZzloZA==" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/></svg> تابعنا على Instagram</a>
+    <div>© ECOWAY - عيشها بصحة</div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
